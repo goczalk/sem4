@@ -143,7 +143,9 @@ class Database {
 			System.err.println(e.getMessage());
 			System.err.println("Database cannot be read.");
 		}finally{
-			fileIn.close(); //nie wywola errora?
+			try{
+				fileIn.close();
+			}catch(NullPointerException e){}
 		}
 		
 		for(Table table : arrayTables){
@@ -152,6 +154,7 @@ class Database {
 		}
 	};	
 	public void writeToFile(){
+	//TODO czy nie ma zadnego przypadku, ze nie zamknie pliku???
 	//TODO bardzo brzydie zeby na stringu?? przekazywac dalej sterowanie plikiem?
 		try{
 			String filename = this.getName();

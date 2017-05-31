@@ -100,6 +100,7 @@ public class Console {
 //metody: public ktokolwiek importujacy? protected - tylko dziedzic i z danego pakietu?
 //klasa: private - nikt??
 
+//TODO Actions do osobnego pakietu
 //TODO ogarnij private i public i protected
 //TODO wyswietl dostepne nazwy tabel! + ich kolumny
 //TODO INSERT INTO table_name VALUES (value1, value2, value3, ...);
@@ -112,5 +113,9 @@ public class Console {
 //TODO unittests
 //TODO better idea of writing to file and reading from?
 //TODO docs
+
+//TODO przemysl TreeMap i interfejs Comparable
+//TODO insert i(i, k, k, i) values (1, 2, 3, 4) wsadzi dwa wiersze, a powinien jeden
+//TODO InvalidTableName, InvalidColumnName
 */
 
