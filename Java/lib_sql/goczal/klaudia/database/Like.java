@@ -1,5 +1,8 @@
 package goczal.klaudia.database;
 
+import java.util.regex.*;//.regex.PatternSyntaxException
+import goczal.klaudia.database.exceptions.*;
+
 class Like extends Action{
 	private String sqlRegex;
 	
@@ -17,10 +20,14 @@ class Like extends Action{
 		this.sqlRegex = "^" + this.sqlRegex.replace("%", ".*").replace("_", ".");
 	};
 	
-	public boolean execute(String val){
+	public boolean execute(String val) throws InvalidWhereSyntaxException{
 		if(val.equals("null")) return false;
-		if(val.matches(this.sqlRegex)) return true;
+		try{
+			if(val.matches(this.sqlRegex)) return true;
 		else return false;
+		}catch(PatternSyntaxException e){
+			throw new InvalidWhereSyntaxException("ERROR: Invalid regex.");
+		}
 	};
 	
 	//for sake of Action, never executed
